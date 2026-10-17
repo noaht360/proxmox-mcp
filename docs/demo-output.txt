@@ -1,0 +1,51 @@
+OFFLINE DEMO | Synthetic nodes and credentials | No network access
+
+1. Initialize protocol
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "protocolVersion": "2025-06-18",
+    "capabilities": {
+      "tools": {}
+    },
+    "serverInfo": {
+      "name": "proxmox-mcp",
+      "version": "0.2.0"
+    }
+  }
+}
+
+2. Discover read-only tools
+proxmox_version, proxmox_list_nodes, proxmox_list_guests, proxmox_list_storage, proxmox_recent_tasks, proxmox_get_task_log, proxmox_list_backup_jobs, proxmox_get_node_apt_repositories, proxmox_list_snapshots, proxmox_get_guest_status
+
+3. List nodes through the real HTTP request/response path with a fixture transport
+{
+  "jsonrpc": "2.0",
+  "id": 2,
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "[\n  {\n    \"node\": \"node-a\",\n    \"status\": \"online\"\n  },\n  {\n    \"node\": \"node-b\",\n    \"status\": \"online\"\n  },\n  {\n    \"node\": \"node-c\",\n    \"status\": \"online\"\n  }\n]"
+      }
+    ]
+  }
+}
+
+4. Reject a guest shutdown while writes are disabled
+{
+  "jsonrpc": "2.0",
+  "id": 3,
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"error\": \"Writes are disabled; set PROXMOX_ENABLE_WRITES=true and restart the client\"\n}"
+      }
+    ],
+    "isError": true
+  }
+}
+
+Completed: fixture read succeeded; write attempt denied.

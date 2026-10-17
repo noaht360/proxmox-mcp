@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "proxmox": {
+      "command": "python",
+      "args": ["/absolute/path/to/proxmox-mcp/proxmox_mcp_server.py"]
+    }
+  }
+}

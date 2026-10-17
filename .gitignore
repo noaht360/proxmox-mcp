@@ -1,0 +1,13 @@
+env.local.ps1
+.env
+.env.*
+!.env.example
+*.secret.ps1
+*.key
+*.pem
+__pycache__/
+*.py[cod]
+.venv/
+.coverage
+htmlcov/
+.DS_Store
