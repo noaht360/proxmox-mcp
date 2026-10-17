@@ -1,5 +1,7 @@
 # Proxmox MCP Adapter
 
+[![Offline Python checks](https://github.com/noaht360/proxmox-mcp/actions/workflows/checks.yml/badge.svg)](https://github.com/noaht360/proxmox-mcp/actions/workflows/checks.yml)
+
 **A small Python adapter that lets an MCP client inspect a Proxmox home lab through its REST API. Read-only by default, with explicitly enabled administrative actions.**
 
 Built from a helper used while documenting my [Proxmox lab](https://github.com/noaht360/proxmox-homelab). This public version adds write gating, input validation, verified HTTPS, offline tests, and a reproducible demo.
@@ -64,7 +66,7 @@ flowchart LR
 
 ## Verification and limits
 
-The automated suite covers request construction, default-denied writes, schema validation, selected action payloads, errors, and stdio behavior without network access. CI is configured for Python 3.10 and 3.12. Local results are recorded in [verification](docs/verification.md).
+The automated suite covers request construction, default-denied writes, schema validation, selected action payloads, errors, and stdio behavior without network access. GitHub Actions passed on Python 3.10 and 3.12; local and hosted results are recorded in [verification](docs/verification.md).
 
 This is a **home-lab prototype**, not a full MCP SDK implementation. It uses the legacy initialize-based stdio flow for protocol versions 2024-11-05, 2025-03-26, and 2025-06-18. It has no HTTP transport, OAuth, pagination framework, cancellation, automatic retries, rate limiting, or application-level audit store. It is not certified against every Proxmox release or current MCP client. Live compatibility of this hardened public copy has not yet been tested.
 
