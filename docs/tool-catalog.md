@@ -1,6 +1,6 @@
 # Tool catalog
 
-Generated from the public adapter source. The default catalog omits write tools.
+The adapter exposes ten read tools by default. Set `PROXMOX_ENABLE_WRITES=true` and restart the client to include the seven administrative tools below.
 
 | Tool | Mode | Required arguments | Purpose |
 | --- | --- | --- | --- |
